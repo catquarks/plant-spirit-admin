@@ -1,0 +1,40 @@
+<%= form_for(plant) do |f| %>
+	<h3>Plant info</h3>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br />
+	<%= f.label :summary %>
+	<%= f.text_area :summary, rows: 10 %>
+	<br />
+	<h3>Feelings that this Plant Enhances</h3>
+	<div class="checkbox-box">
+		<%= f.collection_check_boxes :future_feeling_ids, feelings, :id, :name %>
+	</div>
+	<br />
+	<h3>Add New Feelings</h3>
+	<%= f.fields_for :future_feelings do |ff| %>
+		<%= ff.label :name %>
+		<%= ff.text_field :name %>
+		<br />
+		<%= ff.label :summary %>
+		<%= ff.text_area :summary %>
+	<% end %>
+	<br />
+	<h3>Feelings that this Plant Transforms or Eases</h3>
+	<div class="checkbox-box">
+		<%= f.collection_check_boxes :current_feeling_ids, feelings, :id, :name %>
+	</div>
+	<br />
+	<h3>Add New Feelings</h3>
+	<%= f.fields_for :current_feelings do |ff| %>
+		<%= ff.label :name %>
+		<%= ff.text_field :name %>
+		<br />
+		<%= ff.label :summary %>
+		<%= ff.text_area :summary %>
+	<% end %>
+	<br />
+
+	<%= f.submit submit_text, class: "waves-effect waves-light btn" %>
+<% end %>
+

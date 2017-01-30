@@ -1,0 +1,58 @@
+<%= flash[:notice] if flash[:notice] %>
+
+<div class="container">
+
+  <div class="row">
+    <h2><%= @feeling.name %></h2>
+  </div>
+
+  <div class="row">
+
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Summary</span>
+          <% if @feeling.summary %>
+            <p><%= @feeling.summary %></p>
+          <% else %>
+            <p>No summary is currently available for this feeling.</p>
+          <% end %>
+          <%= link_to "Edit this Feeling", edit_feeling_path(@feeling), class: "btn crud" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+
+        <% if @feeling.easing_plants.count != 0 %>
+          <span class="card-title">Plants that Ease this Feeling:</span>
+            <% @feeling.easing_plants.each do |plant| %>
+              <%= link_to plant.name, plant_path(plant), class: "btn" %>
+            <% end %>
+        <% end %>
+
+        <br />
+
+        <% if @feeling.encouraging_plants.count != 0 %>
+          <span class="card-title">Plants that Encourage this Feeling:</span>
+            <% @feeling.encouraging_plants.each do |plant| %>
+              <%= link_to plant.name, plant_path(plant), class: "btn" %>
+            <% end %>
+        <% end %>
+
+        <!-- end of card-content -->
+        </div>
+
+      <!-- end of card -->
+      </div>
+
+    <!-- end of column -->
+    </div>
+
+  <!-- end of row -->
+  </div>
+
+<!-- end of container -->
+</div>

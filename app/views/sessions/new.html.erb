@@ -1,0 +1,9 @@
+<%= flash[:notice] if flash[:notice] %>
+
+<h2>Sign In</h2>
+
+<%= form_for @user, url: '/login', method: 'post' do |f| %>
+	<%= f.text_field :username, placeholder: "username" %>
+	<%= f.password_field :password, placeholder: "password" %>
+	<%= f.submit 'Login', class: 'btn' %>
+<% end %>

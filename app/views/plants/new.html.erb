@@ -1,0 +1,11 @@
+<h2>Add a New Plant</h2>
+<%= flash[:error] if flash[:error] %>
+<% if @plant.errors.any? %>
+	<ul>
+	<% @plant.errors.full_messages.each do |m| %>
+		<li><%= m %></li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= render partial: 'form', locals: {plant: @plant, submit_text: "Add New Plant", feelings: @feelings} %>

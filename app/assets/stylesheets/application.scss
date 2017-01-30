@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Arsenal');
+
+@import "materialize/components/color";
+
+$background-color: color("cyan", "lighten-4") !default;
+$primary-color: color("cyan", "darken-2") !default;
+$secondary-color: color("cyan", "accent-4") !default;
+
+@import 'materialize';
+
+body {
+  background: $background-color;
+	margin-left: 10%;
+	margin-right: 15%;
+  margin-bottom: 15%;
+  font-family: 'Arsenal', sans-serif;
+}
+
+img {
+	/*max-width: 250px;*/
+	height: auto;
+}
+
+
+nav ul a,
+nav .brand-logo {
+  color: #111;
+}
+
+
+.btn {
+  vertical-align: center;
+  height: auto;
+  max-height: 6em;
+  word-wrap: break-word;
+  text-transform: capitalize;
+  margin: 10px;
+  color: #444;
+}
+
+.crud {
+  background: $primary-color;
+  color: #eee;
+}
+
+
+
+p {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+

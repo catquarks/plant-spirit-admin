@@ -1,0 +1,11 @@
+<h2>Add a New Feeling</h2>
+<%= flash[:error] if flash[:error] %>
+<% if @feeling.errors.any? %>
+	<ul>
+	<% @feeling.errors.full_messages.each do |m| %>
+		<li><%= m %></li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= render partial: 'form', locals: {feeling: @feeling, submit_text: "Add New feeling", plants: @plants} %>

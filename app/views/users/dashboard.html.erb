@@ -1,0 +1,20 @@
+
+<h2>Hi, <%= current_user.username %>!</h2>
+<p>Hope you're doing good and well. I made this page so you could keep track of things.</p>
+
+<%= flash[:error] if flash[:error] %>
+<%= flash[:notice] if flash[:notice] %>
+
+<h3>Edit Your Info</h3>
+
+<%= form_for current_user, method: :patch do |f| %>
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+	<br />
+	<%= f.label :password, "Old Password" %>
+	<%= f.password_field :password, id: "original-password", name: "user[original_password]" %>
+	<br />
+	<%= f.label :password, "New Password" %>
+	<%= f.password_field :password %>
+	<%= f.submit 'Submit' %>
+<% end %>

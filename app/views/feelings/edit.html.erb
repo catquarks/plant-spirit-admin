@@ -1,0 +1,18 @@
+<h2>Edit <%= @feeling.name %></h2>
+
+<%= link_to "Delete this feeling?", feeling_path(@feeling), method: :delete, class: "waves-effect waves-light btn", data: {confirm: "Are you sure you want to delete this?"} %>
+<%= link_to "Go Back", feeling_path(@feeling), class: "waves-effect waves-light btn" %>
+
+<br />
+
+<%= flash[:error] if flash[:error] %>
+<% if @feeling.errors.any? %>
+	<ul>
+	<% @feeling.errors.full_messages.each do |m| %>
+		<li><%= m %></li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= render partial: 'form', locals: {feeling: @feeling, submit_text: "Edit feeling", plants: @plants} %>
+

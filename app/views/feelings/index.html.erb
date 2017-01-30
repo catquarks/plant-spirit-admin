@@ -1,0 +1,13 @@
+<%= flash[:notice] if flash[:notice] %>
+<br />
+
+<%= link_to "Add a new Feeling", new_feeling_path, class: "waves-effect waves-light btn crud" %>
+
+<h2>Feelings Database</h2>
+
+<ul>
+<% @feelings.each do |feeling| %>
+	<li><%= link_to feeling.name, feeling_path(feeling), class: "btn" %></li>
+
+<% end %>
+</ul>
