@@ -8,4 +8,15 @@ class Plant < ApplicationRecord
 	accepts_nested_attributes_for :current_feelings, reject_if: proc{|attributes| attributes['name'].blank?}, allow_destroy: true
 
 	validates :name, presence: true, uniqueness: true
+
+	def short_summary
+	if self.summary
+		if summary.size > 100
+			summary.slice(0, 99) + " [...]"
+		else
+			summary
+		end
+	end
+end
+
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Plant Spirit App</title>
+    <title>Plant Spirit App - Admin</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,13 +16,12 @@
         Hi, <%= current_user.username %>!
       <% end %>
       <ul class="right hide-on-med-and-down">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Manage Plants", plants_path %></li>
-        <li><%= link_to "Manage Feelings", feelings_path %></li>
         <% if !logged_in? %>
           <li><%= link_to "Admin Login", login_path %></li>
         <% else %>
           <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Manage Feelings", feelings_path %></li>
+          <li><%= link_to "Manage Plants", plants_path %></li>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% end %>
       </ul>
@@ -34,7 +33,7 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav> 	
-  	<h1>Plant Spirit App</h1>
+  	<h1>Plant Spirit App - Admin</h1>
     <%= yield %>
   </body>
 </html>

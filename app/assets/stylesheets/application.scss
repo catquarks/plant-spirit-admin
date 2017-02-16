@@ -30,11 +30,17 @@ body {
 	margin-right: 15%;
   margin-bottom: 15%;
   font-family: 'Arsenal', sans-serif;
+  font-size: 1.5rem;
 }
 
 img {
 	/*max-width: 250px;*/
 	height: auto;
+}
+
+td {
+  padding: 10px;
+  border: 1px black solid;
 }
 
 
@@ -47,7 +53,7 @@ nav .brand-logo {
 .btn {
   vertical-align: center;
   height: auto;
-  max-height: 6em;
+  max-height: 8em;
   word-wrap: break-word;
   text-transform: capitalize;
   margin: 10px;
@@ -59,11 +65,15 @@ nav .brand-logo {
   color: #eee;
 }
 
+textarea {
+  height: 8em;
+}
+
 
 
 p {
-  font-size: 1rem;
-  line-height: 2rem;
+  font-size: 1em;
+  line-height: 2em;
 }
 
 .button-collapse {

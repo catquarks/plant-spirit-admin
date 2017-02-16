@@ -5,9 +5,33 @@
 
 <h2>Plant Database</h2>
 
-<ul>
-<% @plants.each do |plant| %>
-	<li><%= link_to plant.name, plant_path(plant), class: "btn" %></li>
-
-<% end %>
-</ul>
+<table>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Summary</td>
+			<td>Current Feelings</td>
+			<td>Future Feelings</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @plants.each do |plant| %>
+		<tr>
+			<td><%= plant.id %></td>
+			<td><%= link_to plant.name, plant_path(plant), class: "btn" %></td>
+			<td><%= plant.short_summary %></td>
+			<td>
+			<% plant.current_feelings.each do |f| %>
+				<li><%= link_to f.name, feeling_path(f) %></li>
+			<% end %>		
+			</td>
+			<td>
+			<% plant.future_feelings.each do |f| %>
+				<li><%= link_to f.name, feeling_path(f) %></li>
+			<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

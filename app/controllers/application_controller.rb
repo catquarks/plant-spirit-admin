@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :authorize_user
 
   def home
+    if logged_in?
+      redirect_to dashboard_path
+    else
+      redirect_to login_path
+    end
   end
 
   def current_user

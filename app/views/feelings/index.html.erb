@@ -5,9 +5,33 @@
 
 <h2>Feelings Database</h2>
 
-<ul>
-<% @feelings.each do |feeling| %>
-	<li><%= link_to feeling.name, feeling_path(feeling), class: "btn" %></li>
-
-<% end %>
-</ul>
+<table>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Summary</td>
+			<td>Easing Plants</td>
+			<td>Encouraging Plants</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @feelings.each do |feeling| %>
+		<tr>
+			<td><%= feeling.id %></td>
+			<td><%= link_to feeling.name, feeling_path(feeling), class: "btn" %></td>
+			<td><%= feeling.short_summary %></td>
+			<td>
+			<% feeling.easing_plants.each do |p| %>
+				<li><%= link_to p.name, plant_path(p) %></li>
+			<% end %>		
+			</td>
+			<td>
+			<% feeling.encouraging_plants.each do |p| %>
+				<li><%= link_to p.name, plant_path(p) %></li>
+			<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
