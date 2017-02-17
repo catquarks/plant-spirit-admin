@@ -9,7 +9,9 @@ class Feeling < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true 
 
+
 	# validate :cannot_be_current_feeling_and_future_feeling_for_same_plant
+
 
 	def cannot_be_current_feeling_and_future_feeling_for_same_plant 
 		unless (easing_plants & encouraging_plants).empty?
