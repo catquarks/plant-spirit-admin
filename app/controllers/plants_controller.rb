@@ -19,7 +19,7 @@ class PlantsController < ApplicationController
 	end
 
 	def create
-		@plant = Plant.new(name: plant_params[:name], summary: plant_params[:summary])
+		@plant = Plant.new(name: plant_params[:name], summary: plant_params[:summary], image: plant_params[:image])
 		if @plant.save
 			id_arr = plant_params[:future_feeling_ids].delete_if {|x| x.empty? }
 			if !id_arr.empty?
