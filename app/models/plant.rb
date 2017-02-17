@@ -4,7 +4,7 @@ class Plant < ApplicationRecord
 	has_many :current_plant_feelings, foreign_key: 'easing_plant_id'
 	has_many :current_feelings, class_name: 'Feeling', through: :current_plant_feelings
 
-	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" },
+	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>", large: "1000x1000" },
 		url: "/images/plants/:id/:style/:basename.:extension",
 		path: ":rails_root/public/images/plants/:id/:style/:basename.:extension",
 		default_url: "/images/plants/:id/:style/missing.png"
