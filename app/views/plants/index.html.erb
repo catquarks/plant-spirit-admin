@@ -22,7 +22,9 @@
 			<td><%= plant.id %></td>
 			<td><%= link_to plant.name, plant_path(plant), class: "btn" %></td>
 			<td><%= plant.short_summary %></td>
-			<td><%= image_tag plant.image.url(:thumb) %></td>
+			<td>
+				<%= link_to image_tag(plant.image.url(:thumb)), plant.image.url(:large) %>
+				</td>
 			<td>
 			<% plant.current_feelings.each do |f| %>
 				<li><%= link_to f.name, feeling_path(f) %></li>

@@ -15,7 +15,7 @@
           <p>No image is currently available.</p>
         <% else %>
           <div class="card-image">
-            <%= image_tag @plant.image.url(:thumb) %>
+            <%= link_to image_tag(@plant.image.url(:thumb)), @plant.image.url(:large) %>
           </div>
         <% end %>
 
