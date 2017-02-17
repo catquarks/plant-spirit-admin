@@ -19,15 +19,30 @@ class PlantsController < ApplicationController
 	end
 
 	def create
-		@plant = Plant.new(plant_params)
-
+		@plant = Plant.new(name: plant_params[:name], summary: plant_params[:summary])
 		if @plant.save
-			# record_history("Created #{@plant} at #{Time.now}")
+			id_arr = plant_params[:future_feeling_ids].delete_if {|x| x.empty? }
+			if !id_arr.empty?
+				id_arr.each do |id|
+					f = Feeling.find(id)
+					@plant.future_feelings << f
+				end
+			end
+			id_arr = plant_params[:current_feeling_ids].delete_if {|x| x.empty? }
+			if !id_arr.empty?
+				id_arr.each do |id|
+					f = Feeling.find(id)
+					@plant.current_feelings << f
+				end
+			end
+
+			@plant.save
+
 			redirect_to plant_path(@plant), notice: "New plant added!"
 		else
-			flash[:error] = "Uh oh!"
-			render :new
+			render :new, error: "Uh oh!"
 		end
+
 	end
 
 	def edit
@@ -42,8 +57,7 @@ class PlantsController < ApplicationController
 			# record_history("Edited #{@plant} at #{Time.now}")
 			redirect_to @plant, notice: 'Successfully updated plant!'
 		else
-			flash[:error] = "Uh oh!"
-			render :edit
+			render :edit, error: "Uh oh!"
 		end
 	end
 
@@ -61,15 +75,17 @@ class PlantsController < ApplicationController
 		end
 
 		def plant_params
-			params.require(:plant).permit(
-				:name, :summary, future_feeling_ids: [], current_feeling_ids: [],
-				future_feelings_attributes: [
-					:name, :summary, :id, :_destroy
-				],
-				current_feelings_attributes: [
-					:name, :summary, :id, :_destroy
-				]
-			)
+			params.require(:plant)
+				.permit(
+					:name, :summary, :id, :image,
+					future_feeling_ids: [], current_feeling_ids: [],
+					future_feelings_attributes: [
+						:name, :summary, :id, :_destroy
+					],
+					current_feelings_attributes: [
+						:name, :summary, :id, :_destroy
+					]
+				)
 		end
 
 end

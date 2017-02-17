@@ -1,0 +1,43 @@
+Started GET "/plants/new" for 75.28.176.247 at 2017-02-04 21:25:05 +0000
+2017-02-04T21:25:05.325040+00:00 app[web.1]: I, [2017-02-04T21:25:05.324971 #4]  INFO -- : [13ffec5b-1139-486e-8d72-b280cc1d695d] Processing by PlantsController#new as HTML
+2017-02-04T21:25:05.327886+00:00 app[web.1]: D, [2017-02-04T21:25:05.327817 #4] DEBUG -- : [13ffec5b-1139-486e-8d72-b280cc1d695d]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+2017-02-04T21:25:05.334129+00:00 app[web.1]: I, [2017-02-04T21:25:05.334056 #4]  INFO -- : [13ffec5b-1139-486e-8d72-b280cc1d695d]   Rendering plants/new.html.erb within layouts/application
+2017-02-04T21:25:05.336624+00:00 app[web.1]: D, [2017-02-04T21:25:05.336552 #4] DEBUG -- : [13ffec5b-1139-486e-8d72-b280cc1d695d]   [1m[36mFeeling Load (0.8ms)[0m  [1m[34mSELECT "feelings".* FROM "feelings"[0m
+2017-02-04T21:25:05.356293+00:00 app[web.1]: I, [2017-02-04T21:25:05.356230 #4]  INFO -- : [13ffec5b-1139-486e-8d72-b280cc1d695d]   Rendered plants/new.html.erb within layouts/application (22.0ms)
+2017-02-04T21:25:05.356155+00:00 app[web.1]: I, [2017-02-04T21:25:05.356055 #4]  INFO -- : [13ffec5b-1139-486e-8d72-b280cc1d695d]   Rendered plants/_form.html.erb (21.7ms)
+2017-02-04T21:25:05.357459+00:00 app[web.1]: I, [2017-02-04T21:25:05.357405 #4]  INFO -- : [13ffec5b-1139-486e-8d72-b280cc1d695d] Completed 200 OK in 32ms (Views: 22.7ms | ActiveRecord: 1.6ms)
+2017-02-04T21:26:23.402598+00:00 app[web.1]: I, [2017-02-04T21:26:23.402518 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e] Started POST "/plants" for 75.28.176.247 at 2017-02-04 21:26:23 +0000
+2017-02-04T21:26:23.403438+00:00 app[web.1]: I, [2017-02-04T21:26:23.403382 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e] Processing by PlantsController#create as HTML
+2017-02-04T21:26:23.403542+00:00 app[web.1]: I, [2017-02-04T21:26:23.403491 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"HmZBsMZ3DG6JKfpkpoCTvTO/d5cX0Tt0ctvPzbgwhWdehHWNki7eP/z0HSVcJFx765k9KYHu9emBUyaXGkRAzQ==", "plant"=>{"name"=>"Crab Apple", "summary"=>"", "future_feeling_ids"=>["", "6"], "future_feelings_attributes"=>{"0"=>{"name"=>"Generosity", "summary"=>""}, "1"=>{"name"=>"", "summary"=>""}}, "current_feeling_ids"=>[""], "current_feelings_attributes"=>{"0"=>{"name"=>"Despair", "summary"=>""}, "1"=>{"name"=>"Self-hate", "summary"=>""}}}, "commit"=>"Add New Plant"}
+2017-02-04T21:26:23.408787+00:00 app[web.1]: D, [2017-02-04T21:26:23.408728 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Load (0.7ms)[0m  [1m[34mSELECT "feelings".* FROM "feelings" WHERE "feelings"."id" = 6[0m
+2017-02-04T21:26:23.405881+00:00 app[web.1]: D, [2017-02-04T21:26:23.405819 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+2017-02-04T21:26:23.412095+00:00 app[web.1]: D, [2017-02-04T21:26:23.412033 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Load (0.6ms)[0m  [1m[34mSELECT "feelings".* FROM "feelings" WHERE 1=0[0m
+2017-02-04T21:26:23.415040+00:00 app[web.1]: D, [2017-02-04T21:26:23.414981 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+2017-02-04T21:26:23.421337+00:00 app[web.1]: D, [2017-02-04T21:26:23.421280 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "feelings" WHERE "feelings"."name" = $1 LIMIT $2[0m  [["name", "Generosity"], ["LIMIT", 1]]
+2017-02-04T21:26:23.419957+00:00 app[web.1]: D, [2017-02-04T21:26:23.419878 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "feelings" WHERE "feelings"."name" = $1 AND ("feelings"."id" != $2) LIMIT $3[0m  [["name", "Self-acceptance"], ["id", 6], ["LIMIT", 1]]
+2017-02-04T21:26:23.425428+00:00 app[web.1]: D, [2017-02-04T21:26:23.425372 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+2017-02-04T21:26:23.425997+00:00 app[web.1]: I, [2017-02-04T21:26:23.425943 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   Rendering plants/new.html.erb within layouts/application
+2017-02-04T21:26:23.422576+00:00 app[web.1]: D, [2017-02-04T21:26:23.422513 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feelings" WHERE "feelings"."name" = $1 LIMIT $2[0m  [["name", "Despair"], ["LIMIT", 1]]
+2017-02-04T21:26:23.423678+00:00 app[web.1]: D, [2017-02-04T21:26:23.423623 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mFeeling Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "feelings" WHERE "feelings"."name" = $1 LIMIT $2[0m  [["name", "Self-hate"], ["LIMIT", 1]]
+2017-02-04T21:26:23.424785+00:00 app[web.1]: D, [2017-02-04T21:26:23.424729 #4] DEBUG -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   [1m[36mPlant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = $1 LIMIT $2[0m  [["name", "Crab Apple"], ["LIMIT", 1]]
+2017-02-04T21:26:23.428227+00:00 app[web.1]: I, [2017-02-04T21:26:23.428174 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   Rendered plants/_form.html.erb (1.7ms)
+2017-02-04T21:26:23.428329+00:00 app[web.1]: I, [2017-02-04T21:26:23.428281 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   Rendered plants/new.html.erb within layouts/application (2.3ms)
+2017-02-04T21:26:23.428477+00:00 app[web.1]: I, [2017-02-04T21:26:23.428430 #4]  INFO -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e] Completed 500 Internal Server Error in 25ms (ActiveRecord: 5.5ms)
+2017-02-04T21:26:23.429197+00:00 app[web.1]: F, [2017-02-04T21:26:23.429144 #4] FATAL -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   
+2017-02-04T21:26:23.429232+00:00 app[web.1]: F, [2017-02-04T21:26:23.429190 #4] FATAL -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e] ActionView::Template::Error (undefined method `map' for nil:NilClass):
+2017-02-04T21:26:23.429386+00:00 app[web.1]: F, [2017-02-04T21:26:23.429337 #4] FATAL -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]      8: 	<br />
+2017-02-04T21:26:23.429388+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]      9: 	<h3>Feelings that this Plant Enhances</h3>
+2017-02-04T21:26:23.429389+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]     10: 	<div class="checkbox-box">
+2017-02-04T21:26:23.429389+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]     11: 		<%= f.collection_check_boxes :future_feeling_ids, feelings, :id, :name %>
+2017-02-04T21:26:23.429390+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]     12: 	</div>
+2017-02-04T21:26:23.429391+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]     13: 	<br />
+2017-02-04T21:26:23.429391+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e]     14: 	<h3>Add New Feelings</h3>
+2017-02-04T21:26:23.429431+00:00 app[web.1]: F, [2017-02-04T21:26:23.429375 #4] FATAL -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e]   
+2017-02-04T21:26:23.429471+00:00 app[web.1]: F, [2017-02-04T21:26:23.429431 #4] FATAL -- : [17fd046a-f0c9-4828-9ce2-70d573926d5e] app/views/plants/_form.html.erb:11:in `block in _app_views_plants__form_html_erb__3432231936722464038_70063365490340'
+2017-02-04T21:26:23.429472+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e] app/views/plants/_form.html.erb:1:in `_app_views_plants__form_html_erb__3432231936722464038_70063365490340'
+2017-02-04T21:26:23.429473+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e] app/views/plants/new.html.erb:11:in `_app_views_plants_new_html_erb__553718950375363999_70063390788380'
+2017-02-04T21:26:23.429473+00:00 app[web.1]: [17fd046a-f0c9-4828-9ce2-70d573926d5e] app/controllers/plants_controller.rb:29:in `create'
+2017-02-04T21:26:25.799377+00:00 app[web.1]: I, [2017-02-04T21:26:25.799299 #4]  INFO -- : [1de1037b-a661-465e-acc7-1d99faf722ca] Started GET "/plants/new" for 75.28.176.247 at 2017-02-04 21:26:25 +0000
+2017-02-04T21:26:25.800225+00:00 app[web.1]: I, [2017-02-04T21:26:25.800167 #4]  INFO -- : [1de1037b-a661-465e-acc7-1d99faf722ca] Processing by PlantsController#new as HTML
+2017-02-04T21:26:25.804709+00:00 app[web.1]: D, [2017-02-04T21:26:25.804632 #4] DEBUG -- : [1de1037b-a661-465e-acc7-1d99faf722ca]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+2017-02-04T21:26:25.818094+00:00 app[web.1]: I, [2017-02-04T21:26:25.817979 #4]  INFO -- : [1de1037b-a661-465e-acc7-1d99faf722ca]   

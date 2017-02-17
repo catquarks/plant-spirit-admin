@@ -5,7 +5,6 @@ class FeelingsController < ApplicationController
 	def index
 		feelings = Feeling.all
 
-		# refactor into sort_by_name
 		@feelings = feelings.sort_by {|feeling| feeling.name}
 	end
 
@@ -21,15 +20,30 @@ class FeelingsController < ApplicationController
 	end
 
 	def create
-		@feeling = Feeling.new(feeling_params)
-
+		@feeling = Feeling.new(name: feeling_params[:name], summary: feeling_params[:summary])
 		if @feeling.save
-			flash[:notice] = "New feeling added!"
-			redirect_to feeling_path(@feeling)
+			id_arr = feeling_params[:encouraging_plant_ids].delete_if {|x| x.empty? }
+			if !id_arr.empty?
+				id_arr.each do |id|
+					p = Plant.find(id)
+					@feeling.encouraging_plants << p
+				end
+			end
+			id_arr = feeling_params[:easing_plant_ids].delete_if {|x| x.empty? }
+			if !id_arr.empty?
+				id_arr.each do |id|
+					p = Plant.find(id)
+					@feeling.easing_plants << p
+				end
+			end
+
+			@feeling.save
+
+			redirect_to feeling_path(@feeling), notice: "New feeling added!"
 		else
-			flash[:error] = "Uh oh!"
-			render :new
+			render :new, error: "Uh oh!"
 		end
+
 	end
 
 	def edit
@@ -60,7 +74,7 @@ class FeelingsController < ApplicationController
 		end
 
 		def feeling_params
-			params.require(:feeling).permit(:name, :summary, easing_plant_ids: [], encouraging_plant_ids: [],
+			params.require(:feeling).permit(:name, :summary, :id, easing_plant_ids: [], encouraging_plant_ids: [],
 				easing_plants_attributes: [
 					:name, :summary, :id, :_destroy
 				],

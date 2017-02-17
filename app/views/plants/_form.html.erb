@@ -6,6 +6,12 @@
 	<%= f.label :summary %>
 	<%= f.text_area :summary, rows: 10 %>
 	<br />
+	<h3>Current Image</h3>
+	<%= image_tag plant.image.url(:thumb) %>
+
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+	<br />
 	<h3>Feelings that this Plant Enhances</h3>
 	<div class="checkbox-box">
 		<%= f.collection_check_boxes :future_feeling_ids, feelings, :id, :name %>
