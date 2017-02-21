@@ -6,7 +6,7 @@ class Plant < ApplicationRecord
 
 	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>", large: "1000x1000" },
 		url: "/images/plants/:id/:style/:basename.:extension",
-		path: ":rails_root/assets/images/plants/:id/:style/:basename.:extension",
+		path: ":rails_root/public/images/plants/:id/:style/:basename.:extension",
 		default_url: "/images/plants/:id/:style/missing.png"
 
   validates_attachment_content_type :image, content_type: /\Aimage/
