@@ -22,3 +22,5 @@
 
 # Ignore images
 /app/assets/images/*
+# Ignore application configuration
+/config/application.yml

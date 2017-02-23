@@ -5,9 +5,9 @@ class Plant < ApplicationRecord
 	has_many :current_feelings, class_name: 'Feeling', through: :current_plant_feelings
 
 	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>", large: "1000x1000" },
-		url: "/assets/plants/:id/:style/:basename.:extension",
-		path: ":rails_root/app/assets/images/plants/:id/:style/:basename.:extension",
-		default_url: "/assets/plants/:id/:style/missing.png"
+		# url: "/assets/plants/:id/:style/:basename.:extension",
+		path: ":class/:attachment/:id/:style.:extension",
+		default_url: ":class/:attachment/missing.png"
 
   validates_attachment_content_type :image, content_type: /\Aimage/
 

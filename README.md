@@ -2,8 +2,8 @@
 
 Learn about plants and their properties.
 
-
-
+- create a default missing image
+bug: can't remove feelings on plant edit page
 
 Things you may want to cover:
 
