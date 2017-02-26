@@ -23,7 +23,7 @@
 			<td><%= link_to plant.name, plant_path(plant), class: "btn" %></td>
 			<td><%= plant.short_summary %></td>
 			<td>
-				<%= link_to image_tag(plant.image.url(:thumb)), plant.image.url(:large) %>
+				<%= link_to image_tag(plant.image.url(:thumb), size: '100x100'), plant.image.url(:large) %>
 				</td>
 			<td>
 			<% plant.current_feelings.each do |f| %>
