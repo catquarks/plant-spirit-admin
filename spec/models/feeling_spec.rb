@@ -65,8 +65,6 @@ describe Feeling, type: :model do
 			new_feeling = Feeling.create(name: 'Sadness')
 			@feeling.easing_plants << @lavender
 			expect {new_feeling.encouraging_plants << @lavender}.to_not raise_error
-
-
 		end
 		
 	end

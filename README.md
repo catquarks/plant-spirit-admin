@@ -1,26 +1,10 @@
 # Plant Spirit App
 
-Learn about plants and their properties.
+This is the administrative side of Plant Spirit App, and is built with Rails 5. It allows the admin to input new data and images, and serves data to the front-end.
 
-- create a default missing image
-bug: can't remove feelings on plant edit page
+This app works with two main models: Plants and Feelings. A Plant and Feeling can only be associated with each other as an Encouraging Plant and Future Feeling, or as a Current Feeling and Easing Plant.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# To Do:
+* Finish PlantController tests
+* Finish SessionsController tests
+* Bug fix: user can't remove feelings on plant edit page
