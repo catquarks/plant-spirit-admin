@@ -24,3 +24,6 @@
 /app/assets/images/*
 # Ignore application configuration
 /config/application.yml
+
+#Ignore bug notes
+bug_1
