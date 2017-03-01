@@ -27,3 +27,6 @@
 
 #Ignore bug notes
 bug_1
+
+#Ignore CORS configuration
+/config/initializers/cors.rb
