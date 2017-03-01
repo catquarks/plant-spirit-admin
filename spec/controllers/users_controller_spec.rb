@@ -29,7 +29,7 @@ describe UsersController, type: :controller do
 		end
 	end
 
-	context 'Feelings'
+	context 'Feelings' do
 		feature '#index' do 
 			scenario 'unlogged-in users should be unable to see feelings index' do 
 				visit feelings_path
@@ -53,3 +53,4 @@ describe UsersController, type: :controller do
 
 	end
 
+end
