@@ -7,7 +7,7 @@
 	<%= f.text_area :summary, rows: 10 %>
 	<br />
 	<h3>Current Image</h3>
-	<%= link_to image_tag(plant.image.url(:medium)), plant.image.url(:large) %>	
+	<%= link_to image_tag(plant.image.url(:medium), size: '300x300'), plant.image.url(:large) %>	
 <%= f.label :image %>
 	<%= f.file_field :image %>
 	<br />

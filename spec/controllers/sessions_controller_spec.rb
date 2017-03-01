@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe SessionsController, type: :controller do 
+describe SessionsController, type: :request do 
 	before(:each) do 
 		@ringo = User.create(username: "Ringo", password: "octopusgarden")
 	end
 
 	feature '#create' do
 		scenario 'user should be able to login' do 
-			visit '/login'
+			visit login_path
 			fill_in 'user_username', with: 'Ringo'
 			fill_in 'user_password', with: 'octopusgarden'
 			click_button 'Login'
