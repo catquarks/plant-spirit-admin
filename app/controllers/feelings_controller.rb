@@ -38,10 +38,10 @@ class FeelingsController < ApplicationController
 			end
 
 			@feeling.save
-
 			redirect_to feeling_path(@feeling), notice: "New feeling added!"
 		else
-			render :new, error: "Uh oh!"
+			flash[:error] = "Uh oh!"
+			render :new
 		end
 
 	end

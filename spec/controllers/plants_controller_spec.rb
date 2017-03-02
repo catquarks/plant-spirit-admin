@@ -16,7 +16,6 @@ describe PlantsController, type: :request do
 			visit new_plant_path
 			fill_in "plant_name", with: "Eucalyptus"
 			fill_in 'plant_summary', with: "A very nice smelling plant."
-			check "plant_future_feeling_ids_#{@sadness.id}"
 			find_button('Add New Plant').click
 			expect(page).to have_content 'New plant added!'
 		end

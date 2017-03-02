@@ -24,38 +24,9 @@ $secondary-color: color("cyan", "accent-4") !default;
 
 @import 'materialize';
 
-.plant-form {
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  
-  .plant-form-child {
-    justify-content: space-between;
-    flex-grow: 1;
-    margin: 1em;
-  }
-}
-
-.checkboxes-form {
-  .checkboxes-child {
-    input[type=checkbox] {
-      background: red;
-    }
-    
-    label {
-      color: #222;
-      font-size: 1em;
-      background: rgba(0, 150, 150, 0.3);
-      margin: 0.7em;
-
-    }
-  }
-}
 
 body {
   background: $background-color;
-	margin-left: 10%;
-	margin-right: 15%;
   margin-bottom: 10%;
   font-family: 'Arsenal', sans-serif;
   font-size: 1.5rem;
@@ -74,14 +45,48 @@ td {
   border: 1px black solid;
 }
 
-.edit-container {
+nav ul a,
+nav .brand-logo {
+  color: #111;
+}
+
+textarea {
+  height: 8em;
+}
+
+
+p {
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.control-buttons, .errors {
   margin: auto;
 }
 
 
-nav ul a,
-nav .brand-logo {
-  color: #111;
+.plant-form {
+  display: flex;
+  justify-content: center;
+  
+  .plant-form-child {
+    flex-grow: 1;
+    padding: 2em;
+    margin: auto;
+  }
+}
+
+.checkboxes-form {
+  .checkboxes-child {
+    
+    label {
+      color: #222;
+      font-size: 1em;
+      background: rgba(0, 150, 150, 0.3);
+      margin: 0.7em;
+
+    }
+  }
 }
 
 
@@ -100,15 +105,6 @@ nav .brand-logo {
   color: #eee;
 }
 
-textarea {
-  height: 8em;
-}
-
-
-p {
-  font-size: 1em;
-  line-height: 2em;
-}
 
 .button-collapse {
   color: #26a69a;
