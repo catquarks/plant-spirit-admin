@@ -54,10 +54,12 @@ class PlantsController < ApplicationController
 
 	def update
 		if @plant.update(plant_params)
+			# binding.pry
 			# record_history("Edited #{@plant} at #{Time.now}")
 			redirect_to @plant, notice: 'Successfully updated plant!'
 		else
-			render :edit, error: "Uh oh!"
+			flash[:error] = "uh oh!"
+			render :edit
 		end
 	end
 

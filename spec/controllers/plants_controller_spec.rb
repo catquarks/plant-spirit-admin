@@ -53,7 +53,7 @@ describe PlantsController, type: :request do
 			expect(page).to have_content 'Successfully updated plant!'
 		end
 
-			scenario 'should allow user to unassign existing future_feelings from an existing plant AND add a different future_feeling' do 
+		scenario 'should allow user to unassign existing future_feelings from an existing plant AND add a different future_feeling' do
 			plant = Plant.create(name: "Eucalyptus", summary: "A very nice smelling plant.")
 			hope = Feeling.create(name: "Hope", summary: "A hopeful feeling.")
 			plant.future_feelings << @sadness
@@ -73,6 +73,19 @@ describe PlantsController, type: :request do
 
 			visit "/plants/#{plant.id}/edit"
 			uncheck "plant_current_feeling_ids_#{@sadness.id}"
+			find_button('Edit Plant').click
+			expect(page).to have_content 'Successfully updated plant!'
+		end
+
+		scenario 'should allow user to unassign existing current_feelings from an existing plant AND add a different current_feeling' do 
+			plant = Plant.create(name: "Eucalyptus", summary: "A very nice smelling plant.")
+			hope = Feeling.create(name: "Hope", summary: "A hopeful feeling.")
+			plant.current_feelings << @sadness
+			plant.save
+
+			visit "/plants/#{plant.id}/edit"
+			uncheck "plant_current_feeling_ids_#{@sadness.id}"
+			check "plant_current_feeling_ids_#{hope.id}"
 			find_button('Edit Plant').click
 			expect(page).to have_content 'Successfully updated plant!'
 		end

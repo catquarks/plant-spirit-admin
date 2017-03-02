@@ -24,13 +24,51 @@ $secondary-color: color("cyan", "accent-4") !default;
 
 @import 'materialize';
 
+
+
+
+.plant-form {
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  
+  .plant-form-child {
+    justify-content: space-between;
+    flex-grow: 1;
+    margin: 1em;
+  }
+
+
+
+}
+
+.checkboxes-form {
+  .checkboxes-child {
+    input[type=checkbox] {
+      background: red;
+    }
+    
+    label {
+      color: #222;
+      font-size: 1em;
+      background: rgba(0, 150, 150, 0.3);
+      margin: 0.7em;
+
+    }
+  }
+}
+
 body {
   background: $background-color;
 	margin-left: 10%;
 	margin-right: 15%;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   font-family: 'Arsenal', sans-serif;
   font-size: 1.5rem;
+}
+
+h1, h2 {
+  text-align: center;
 }
 
 img {
@@ -41,6 +79,10 @@ img {
 td {
   padding: 10px;
   border: 1px black solid;
+}
+
+.edit-container {
+  margin: auto;
 }
 
 

@@ -14,5 +14,34 @@
 	</ul>
 <% end %>
 
-<%= render partial: 'form', locals: {plant: @plant, submit_text: "Edit Plant", feelings: @feelings} %>
+<%= form_for(@plant, multipart: true) do |f| %>
+<div class="plant-form">
+	<div class="plant-form-child">
+		<h3>Plant info</h3>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<br />
+		<%= f.label :summary %>
+		<%= f.text_area :summary, rows: 10 %>
+	</div>
+	<div class="plant-form-child">
+		<h3>Current Image</h3>
+		<%= link_to image_tag(@plant.image.url(:medium), size: '300x300'), @plant.image.url(:large) %>
+		<br />
+		<%= f.file_field :image %>
+	</div>
+</div>
+
+<div class="checkboxes-form">
+	<div class="checkboxes-child">
+	<h3>Feelings that this Plant Enhances</h3>
+		<%= f.collection_check_boxes :future_feeling_ids, @feelings, :id, :name %>
+	</div>
+	<div class="checkboxes-child">
+		<h3>Feelings that this Plant Transforms or Eases</h3>
+		<%= f.collection_check_boxes :current_feeling_ids, @feelings, :id, :name %>
+	</div>
+	<%= f.submit "Edit Plant", class: "waves-effect waves-light btn" %>
+</div>
+<% end %>
 
