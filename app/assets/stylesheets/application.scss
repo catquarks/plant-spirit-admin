@@ -24,9 +24,6 @@ $secondary-color: color("cyan", "accent-4") !default;
 
 @import 'materialize';
 
-
-
-
 .plant-form {
   margin: auto;
   display: flex;
@@ -37,9 +34,6 @@ $secondary-color: color("cyan", "accent-4") !default;
     flex-grow: 1;
     margin: 1em;
   }
-
-
-
 }
 
 .checkboxes-form {
@@ -72,7 +66,6 @@ h1, h2 {
 }
 
 img {
-	/*max-width: 250px;*/
 	height: auto;
 }
 
@@ -112,7 +105,6 @@ textarea {
 }
 
 
-
 p {
   font-size: 1em;
   line-height: 2em;
@@ -120,35 +112,6 @@ p {
 
 .button-collapse {
   color: #26a69a;
-}
-
-
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
 }
 
 
