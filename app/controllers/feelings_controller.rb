@@ -47,10 +47,7 @@ class FeelingsController < ApplicationController
 	end
 
 	def edit
-		# refactor since its duplicated in 3 other functions
 		@plants = Plant.all
-		2.times {@feeling.encouraging_plants.build}
-		2.times {@feeling.easing_plants.build}
 	end
 
 	def update

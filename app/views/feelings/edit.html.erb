@@ -14,5 +14,30 @@
 	</ul>
 <% end %>
 
-<%= render partial: 'form', locals: {feeling: @feeling, submit_text: "Edit feeling", plants: @plants} %>
+<%= form_for(@feeling) do |f| %>
+<div class="feeling-form">
+	<div class="feeling-form-child">
+		<h3>Feeling info</h3>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<br />
+		<%= f.label :summary %>
+		<%= f.text_area :summary, rows: 10 %>
+	</div>
+</div>
+
+<div class="checkboxes-form">
+	<div class="checkboxes-child">
+		<h3>Plants that Enhance this Feeling</h3>
+		<%= f.collection_check_boxes :encouraging_plant_ids, @plants, :id, :name %>
+	</div>
+
+	<div class="checkboxes-child">
+		<h3>Plants that Ease this Feeling</h3>
+		<div class="checkbox-box">
+			<%= f.collection_check_boxes :easing_plant_ids, @plants, :id, :name %>
+		</div>
+	</div>
+	<%= f.submit "Edit Feeling", class: "waves-effect waves-light btn" %>
+<% end %>
 
