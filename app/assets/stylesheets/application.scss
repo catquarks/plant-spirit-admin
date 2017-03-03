@@ -61,26 +61,38 @@ p {
 }
 
 
-#plants-index, #feelings-index, #new-plant, #edit-plant {
+#plants-index, #new-plant, #edit-plant,
+#feelings-index, #new-feeling, #edit-feeling {
   margin: 2em;
 }
 
 .control-buttons, .errors {
   margin: auto;
+  width: 100%;
 }
 
+.btn {
+  vertical-align: center;
+  height: auto;
+  max-height: 8em;
+  word-wrap: break-word;
+  text-transform: capitalize;
+  margin: 10px;
+  color: #444;
+}
+
+
 a.crud {
-  display: block;
+  background: $primary-color;
+  color: #eee;
   margin: auto;
   width: 14em;
 }
-
 
 .plant-form {
   display: flex;
   
   .plant-form-child {
-
     width: 40em;
     flex-grow: 1;
     /*padding: 2em;*/
@@ -112,21 +124,6 @@ a.crud {
   }
 }
 
-
-.btn {
-  vertical-align: center;
-  height: auto;
-  max-height: 8em;
-  word-wrap: break-word;
-  text-transform: capitalize;
-  /*margin: 10px;*/
-  color: #444;
-}
-
-.crud {
-  background: $primary-color;
-  color: #eee;
-}
 
 
 .button-collapse {

@@ -3,8 +3,8 @@
 	<h2>Edit <%= @plant.name %></h2>
 
 	<div class="control-buttons">
-		<%= link_to "Delete this plant?", plant_path(@plant), method: :delete, class: "waves-effect waves-light btn", data: {confirm: "Are you sure you want to delete this?"} %>
-		<%= link_to "Go back", plant_path(@plant), class: "waves-effect waves-light btn" %>
+		<%= link_to "Delete this plant?", plant_path(@plant), method: :delete, class: "waves-effect waves-light btn crud", data: {confirm: "Are you sure you want to delete this?"} %>
+		<%= link_to "Go back", plant_path(@plant), class: "waves-effect waves-light btn crud" %>
 	</div>
 
 	<div class="errors">

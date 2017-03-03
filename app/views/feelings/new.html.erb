@@ -1,11 +1,56 @@
-<h2>Add a New Feeling</h2>
-<%= flash[:error] if flash[:error] %>
-<% if @feeling.errors.any? %>
-	<ul>
-	<% @feeling.errors.full_messages.each do |m| %>
-		<li><%= m %></li>
-	<% end %>
-	</ul>
-<% end %>
+<div id="new-feeling">
+	<h2>Add a New Feeling</h2>
 
-<%= render partial: 'form', locals: {feeling: @feeling, submit_text: "Add New Feeling", plants: @plants} %>
+	<div class="errors">
+		<%= flash[:notice] if flash[:notice] %>
+		<%= flash[:error] if flash[:error] %>
+		<% if @feeling.errors.any? %>
+			<ul>
+			<% @feeling.errors.full_messages.each do |m| %>
+				<li><%= m %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</div>
+
+	<%= form_for(@feeling) do |f| %>
+		<%= render partial: 'form_info', locals: {f: f} %>
+
+		<div class="checkboxes-form">
+			<h3>Plants that Enhance this Feeling</h3>
+			<div class="checkboxes-child">
+				<%= f.collection_check_boxes :encouraging_plant_ids, @plants, :id, :name %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Add New Enhancing/Encouraging Plants</h3>
+				<%= f.fields_for :encouraging_plants do |ff| %>
+					<%= ff.label :name %>
+					<%= ff.text_field :name %>
+					<br />
+					<%= ff.label :summary %>
+					<%= ff.text_area :summary %>
+				<% end %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Plants that Ease this Feeling</h3>
+				<%= f.collection_check_boxes :easing_plant_ids, @plants, :id, :name %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Add Easing Plants</h3>
+				<%= f.fields_for :easing_plants do |ff| %>
+					<%= ff.label :name %>
+					<%= ff.text_field :name %>
+					<br />
+					<%= ff.label :summary %>
+					<%= ff.text_area :summary %>
+				<% end %>
+			</div>
+
+		<%= f.submit "Add New Feeling", class: "waves-effect waves-light btn" %>
+	<% end %>
+	</div>
+	
+</div>
