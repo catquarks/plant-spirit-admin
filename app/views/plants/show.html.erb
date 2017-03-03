@@ -1,67 +1,71 @@
-<div class="errors">
-  <%= flash[:notice] if flash[:notice] %>
-  <%= flash[:error] if flash[:error] %>
-</div>
+<div id="plant-show">
 
-<div class="container">
-
-  <div class="row">
-    <h2><%= @plant.name %></h2>
+  <div class="errors">
+    <%= flash[:notice] if flash[:notice] %>
+    <%= flash[:error] if flash[:error] %>
   </div>
 
-  <div class="row">
+  <div class="container">
 
-    <div class="col s6">
-      <div class="card">
-        <div class="card-content">
-        <% if !@plant.image %>
-          <p>No image is currently available.</p>
-        <% else %>
-          <div class="card-image">
-            <%= link_to image_tag(@plant.image.url(:medium)), @plant.image.url(:large) %>
-          </div>
-        <% end %>
+    <div class="row">
+      <h2><%= @plant.name %></h2>
+    </div>
 
-          <span class="card-title">Summary</span>
-          <% if @plant.summary %>
-            <p><%= @plant.summary %></p>
+    <div class="row">
+
+      <div class="col s6">
+        <div class="card">
+          <div class="card-content">
+          <% if !@plant.image %>
+            <p>No image is currently available.</p>
           <% else %>
-            <p>No summary is yet available. In the meantime, <a href="https://www.google.com/#q=<%= @plant.name %>" target="_blank">try Google</a>.</p>
+            <div class="card-image">
+              <%= link_to image_tag(@plant.image.url(:medium)), @plant.image.url(:large) %>
+            </div>
           <% end %>
-          <%= link_to "Edit this Plant", edit_plant_path(@plant), class: "btn crud" %>
+
+            <span class="card-title">Summary</span>
+            <% if @plant.summary %>
+              <p><%= @plant.summary %></p>
+            <% else %>
+              <p>No summary is yet available. In the meantime, <a href="https://www.google.com/#q=<%= @plant.name %>" target="_blank">try Google</a>.</p>
+            <% end %>
+            <%= link_to "Edit this Plant", edit_plant_path(@plant), class: "btn crud" %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col s6">
-      <div class="card">
-        <div class="card-content">
+      <div class="col s6">
+        <div class="card">
+          <div class="card-content">
 
-          <span class="card-title">Effective for...</span>
+            <span class="card-title">Effective for...</span>
+            <br />
+            <% @plant.current_feelings.each do |f| %>
+              <%= link_to f.name, feeling_path(f), class: "btn" %>
+            <% end %>
+
           <br />
-          <% @plant.current_feelings.each do |f| %>
-            <%= link_to f.name, feeling_path(f), class: "btn" %>
-          <% end %>
 
-        <br />
+            <span class="card-title">Makes you feel...</span>
+            <br />
+            <% @plant.future_feelings.each do |f| %>
+              <%= link_to f.name, feeling_path(f), class: "btn" %>
+            <% end %>
 
-          <span class="card-title">Makes you feel...</span>
-          <br />
-          <% @plant.future_feelings.each do |f| %>
-            <%= link_to f.name, feeling_path(f), class: "btn" %>
-          <% end %>
+          <!-- end of card-content -->
+          </div>
 
-        <!-- end of card-content -->
+        <!-- end of card -->
         </div>
 
-      <!-- end of card -->
+      <!-- end of column -->
       </div>
 
-    <!-- end of column -->
+    <!-- end of row -->
     </div>
 
-  <!-- end of row -->
+  <!-- end of container -->
   </div>
 
-<!-- end of container -->
 </div>
