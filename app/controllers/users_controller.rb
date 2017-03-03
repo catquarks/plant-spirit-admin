@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 	before_action :update_user_params, only: [:update]
 
 	def dashboard
-		@plants = Plant.all 
-		@feelings = Feeling.all 
 	end
 
   def update

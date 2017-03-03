@@ -1,10 +1,14 @@
-<%= flash[:notice] if flash[:notice] %>
-<%= flash[:error] if flash[:error] %>
+<div id="login-page">
+	<div class="errors">
+		<%= flash[:notice] if flash[:notice] %>
+		<%= flash[:error] if flash[:error] %>
+	</div>
 
-<h2>Sign In</h2>
+	<h2>Sign In</h2>
 
-<%= form_for @user, url: '/login', method: 'post' do |f| %>
-	<%= f.text_field :username, placeholder: "username" %>
-	<%= f.password_field :password, placeholder: "password" %>
-	<%= f.submit 'Login', class: 'btn' %>
-<% end %>
+	<%= form_for @user, url: '/login', method: 'post' do |f| %>
+		<%= f.text_field :username, placeholder: "username" %>
+		<%= f.password_field :password, placeholder: "password" %>
+		<%= f.submit 'Login', class: 'btn' %>
+	<% end %>
+</div>
