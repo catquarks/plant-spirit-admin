@@ -60,8 +60,20 @@ p {
   line-height: 2em;
 }
 
-.control-buttons, .errors {
-  margin: auto;
+
+#plants-index {
+  margin: 2em;
+
+  .control-buttons, .errors {
+    margin: auto;
+  }
+
+  a.crud {
+    display: block;
+    margin: auto;
+    width: 10em;
+  }
+
 }
 
 
@@ -96,7 +108,7 @@ p {
   max-height: 8em;
   word-wrap: break-word;
   text-transform: capitalize;
-  margin: 10px;
+  /*margin: 10px;*/
   color: #444;
 }
 

@@ -1,42 +1,48 @@
-<%= flash[:notice] if flash[:notice] %>
-<%= flash[:error] if flash[:error] %>
-<br/>
+<div id="plants-index">
+	<div class="errors">
+		<%= flash[:notice] if flash[:notice] %>
+		<%= flash[:error] if flash[:error] %>
+	</div>
 
-<%= link_to "Add a new Plant", new_plant_path, class: "waves-effect waves-light btn crud" %>
+	<div class="control-buttons">
+		<%= link_to "Add a new Plant", new_plant_path, class: "waves-effect waves-light btn crud" %>
+	</div>
 
-<h2>Plant Database</h2>
+	<h2>Plant Database</h2>
 
-<table>
-	<thead>
-		<tr>
-			<td>ID</td>
-			<td>Name</td>
-			<td>Summary</td>
-			<td>Image</td>
-			<td>Current Feelings</td>
-			<td>Future Feelings</td>
-		</tr>
-	</thead>
-	<tbody>
-		<% @plants.each do |plant| %>
-		<tr>
-			<td><%= plant.id %></td>
-			<td><%= link_to plant.name, plant_path(plant), class: "btn" %></td>
-			<td><%= plant.short_summary %></td>
-			<td>
-				<%= link_to image_tag(plant.image.url(:thumb), size: '100x100'), plant.image.url(:large) %>
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Summary</td>
+				<td>Image</td>
+				<td>Current Feelings</td>
+				<td>Future Feelings</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @plants.each do |plant| %>
+			<tr>
+				<td><%= plant.id %></td>
+				<td><%= link_to plant.name, plant_path(plant), class: "btn" %></td>
+				<td><%= plant.short_summary %></td>
+				<td>
+					<%= link_to image_tag(plant.image.url(:thumb), size: '100x100'), plant.image.url(:large) %>
+					</td>
+				<td>
+				<% plant.current_feelings.each do |f| %>
+					<li><%= link_to f.name, feeling_path(f) %></li>
+				<% end %>		
 				</td>
-			<td>
-			<% plant.current_feelings.each do |f| %>
-				<li><%= link_to f.name, feeling_path(f) %></li>
-			<% end %>		
-			</td>
-			<td>
-			<% plant.future_feelings.each do |f| %>
-				<li><%= link_to f.name, feeling_path(f) %></li>
+				<td>
+				<% plant.future_feelings.each do |f| %>
+					<li><%= link_to f.name, feeling_path(f) %></li>
+				<% end %>
+				</td>
+			</tr>
 			<% end %>
-			</td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+		</tbody>
+	</table>
+
+</div>
