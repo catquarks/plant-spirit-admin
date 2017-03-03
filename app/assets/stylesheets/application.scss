@@ -61,19 +61,18 @@ p {
 }
 
 
-#plants-index {
+#plants-index, #feelings-index {
   margin: 2em;
+}
 
-  .control-buttons, .errors {
-    margin: auto;
-  }
+.control-buttons, .errors {
+  margin: auto;
+}
 
-  a.crud {
-    display: block;
-    margin: auto;
-    width: 10em;
-  }
-
+a.crud {
+  display: block;
+  margin: auto;
+  width: 14em;
 }
 
 
