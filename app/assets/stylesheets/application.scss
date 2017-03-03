@@ -32,7 +32,7 @@ body {
   font-size: 1.5rem;
 }
 
-h1, h2 {
+h1, h2, h3 {
   text-align: center;
 }
 
@@ -61,7 +61,7 @@ p {
 }
 
 
-#plants-index, #feelings-index {
+#plants-index, #feelings-index, #new-plant, #edit-plant {
   margin: 2em;
 }
 
@@ -78,12 +78,24 @@ a.crud {
 
 .plant-form {
   display: flex;
-  justify-content: center;
   
   .plant-form-child {
+
+    width: 40em;
     flex-grow: 1;
-    padding: 2em;
+    /*padding: 2em;*/
     margin: auto;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    input[type=file] {
+      display: block;
+      margin: auto;
+    }
+
   }
 }
 

@@ -1,0 +1,17 @@
+<div class="plant-form">
+	<div class="plant-form-child">
+		<h3>Plant info</h3>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<br />
+		<%= f.label :summary %>
+		<%= f.text_area :summary, rows: 10 %>
+	</div>
+
+	<div class="plant-form-child">
+		<h3>Current Image</h3>
+		<%= link_to image_tag(@plant.image.url(:medium), size: '300x300'), @plant.image.url(:large) %>
+		<br />
+		<%= f.file_field :image %>
+	</div>
+</div>

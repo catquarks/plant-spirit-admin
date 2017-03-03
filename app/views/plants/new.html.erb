@@ -1,11 +1,56 @@
-<h2>Add a New Plant</h2>
-<%= flash[:error] if flash[:error] %>
-<% if @plant.errors.any? %>
-	<ul>
-	<% @plant.errors.full_messages.each do |m| %>
-		<li><%= m %></li>
-	<% end %>
-	</ul>
-<% end %>
+<div id="new-plant">
 
-<%= render partial: 'form', locals: {plant: @plant, submit_text: "Add New Plant", feelings: @feelings} %>
+	<h2>Add a New Plant</h2>
+	<div class="errors">
+		<%= flash[:notice] if flash[:notice] %>
+		<%= flash[:error] if flash[:error] %>
+		<% if @plant.errors.any? %>
+			<ul>
+			<% @plant.errors.full_messages.each do |m| %>
+				<li><%= m %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</div>
+
+	<%= form_for(@plant, multipart: true) do |f| %>
+		<%= render partial: 'form_info_and_image', locals: {plant: @plant, f: f} %>
+
+		<div class="checkboxes-form">
+			<div class="checkboxes-child">
+				<h3>Feelings that this Plant Enhances</h3>
+				<%= f.collection_check_boxes :future_feeling_ids, @feelings, :id, :name %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Add New Feelings</h3>
+				<%= f.fields_for :future_feelings do |ff| %>
+					<%= ff.label :name %>
+					<%= ff.text_field :name %>
+					<br />
+					<%= ff.label :summary %>
+					<%= ff.text_area :summary %>
+				<% end %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Feelings that this Plant Transforms or Eases</h3>
+				<%= f.collection_check_boxes :current_feeling_ids, @feelings, :id, :name %>
+			</div>
+
+			<div class="checkboxes-child">
+				<h3>Add New Feelings</h3>
+				<%= f.fields_for :current_feelings do |ff| %>
+					<%= ff.label :name %>
+					<%= ff.text_field :name %>
+					<br />
+					<%= ff.label :summary %>
+					<%= ff.text_area :summary %>
+				<% end %>
+			</div>
+
+		<%= f.submit "Add New Plant", class: "waves-effect waves-light btn" %>
+	<% end %>
+	</div>
+	
+</div>
