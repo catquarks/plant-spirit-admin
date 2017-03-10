@@ -2,8 +2,7 @@
 
 Plant Spirit App is a meditation app, which recommends plant species to meditate with depending on how you are feeling. Data is collected by [Béthany](oluminousbeing.com), the only administrator (aside from the developer).
 
-[Click here for the Live Demo](http://comfortcat.xyz/plant-spirit-demo/)! Or [click here for the front-end repo](https://github.com/catquarks/plant-spirit-app).
-)
+[Click here for the Live Demo](http://comfortcat.xyz/plant-spirit-demo/)! Or [click here for the front-end repo](https://github.com/catquarks/plant-spirit-app), which is written in React + Redux.
 
 This is the administrative side of Plant Spirit App. It allows the admin to input new data and images, and serves data to the front-end. It is built with Rails 5, and its test suite uses Rspec and Capybara.
 
@@ -13,7 +12,6 @@ This app uses two main models: Plants and Feelings. A Plant and Feeling can only
 
 No live link is provided because only logged-in administrators may have access. This repository only exists for potential employers to look at my code. ;)
 
-Please stay tuned for the front-end live link and repository! The front-end is being written in React + Redux.
 
 # To Do:
 * Pass PlantController tests
