@@ -25,11 +25,8 @@ module Api
 				render json: Plant.find(params[:id])
 			end
 
-			def new
-			end
-
 			def create
-				plant = Plant.new(plant_params)
+				plant = Plant.create(plant_params)
 				if plant.save
 					render json: plant
 				else
