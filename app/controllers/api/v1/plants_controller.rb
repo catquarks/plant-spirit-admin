@@ -15,15 +15,32 @@ module Api
 						encouraging_plants = plants.joins(:future_plant_feelings).where(future_plant_feelings: {future_feeling_id: feeling.id})
 						render json: encouraging_plants
 					end
-						
 				else
-					raise 'No plants were found!'
+					# raise 'No plants were found!'
+					render json: plants
 				end
 			end
 
 			def show
 				render json: Plant.find(params[:id])
 			end
+
+			def new
+			end
+
+			def create
+				plant = Plant.new(plant_params)
+				if plant.save
+					render json: plant
+				else
+					render json: plant.errors, status: 500
+				end
+			end
+
+			def plant_params
+				params.require(:plant).permit(:name, :summary, :image)
+			end
+
 		end
 	end
 end
