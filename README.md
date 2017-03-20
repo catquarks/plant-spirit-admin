@@ -1,6 +1,6 @@
 # Plant Spirit App
 
-Plant Spirit App is a meditation app, which recommends plant species to meditate with depending on how you are feeling. Data is collected by [Béthany](oluminousbeing.com), the only administrator (aside from the developer).
+Plant Spirit App is a meditation app, which recommends plant species to meditate with. Data is collected by [Béthany](oluminousbeing.com), the only administrator (aside from the developer).
 
 [Click here for the Live Demo](http://comfortcat.xyz/plant-spirit-demo/)! Or [click here for the front-end repo](https://github.com/catquarks/plant-spirit-app), which is written in React + Redux.
 
