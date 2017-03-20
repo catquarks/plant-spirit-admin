@@ -10,7 +10,7 @@ This is the administrative side of Plant Spirit App. It allows the admin to inpu
 
 This app uses two main models: Plants and Feelings. A Plant and Feeling can only be associated with each other as an Encouraging Plant and Future Feeling, or as a Current Feeling and Easing Plant. Encouraging Plants encourage Future Feelings (e.g. lavender encourages calmness), and Easing Plants ease Current Feelings (e.g. lavender eases insomnia).
 
-No live link is provided because only logged-in administrators may have access. This repository only exists for potential employers to look at my code. ;)
+No live link is provided because only logged-in administrators may have access. You may have a look at the [JSON](http://plant-spirit-app.herokuapp.com/api/v1/plants) here.
 
 
 # To Do:
