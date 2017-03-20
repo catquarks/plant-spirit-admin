@@ -6,11 +6,9 @@ Plant Spirit App is a meditation app, which recommends plant species to meditate
 
 This is the administrative side of Plant Spirit App. It allows the admin to input new data and images, and serves data to the front-end. It is built with Rails 5, and its test suite uses Rspec and Capybara.
 
-
+Only logged-in administrators may have access to this app, but you may look at the [JSON](http://plant-spirit-app.herokuapp.com/api/v1/plants) here.
 
 This app uses two main models: Plants and Feelings. A Plant and Feeling can only be associated with each other as an Encouraging Plant and Future Feeling, or as a Current Feeling and Easing Plant. Encouraging Plants encourage Future Feelings (e.g. lavender encourages calmness), and Easing Plants ease Current Feelings (e.g. lavender eases insomnia).
-
-No live link is provided because only logged-in administrators may have access. You may have a look at the [JSON](http://plant-spirit-app.herokuapp.com/api/v1/plants) here.
 
 
 # To Do:
