@@ -12,7 +12,7 @@ class PlantSerializer < ActiveModel::Serializer
 		object.image.url(:medium)
 	end
 
-	attributes :id, :name, :thumb_pic, :large_pic, :medium_pic, :summary, :future_feelings, :current_feelings
+	attributes :id, :name, :thumb_pic, :large_pic, :image_credit_desc, :image_credit_url, :medium_pic, :summary, :future_feelings, :current_feelings
 	has_many :current_feelings, serializer: PlantCurrentFeelingSerializer
 	has_many :future_feelings, serializer: PlantFutureFeelingSerializer
 end
