@@ -10,8 +10,12 @@
 
 	<div class="plant-form-child">
 		<h3>Current Image</h3>
+		<%= f.label :image_credit_desc %>
+		<%= f.text_field :image_credit_desc %>
+		<%= f.label :image_credit_url %>
+		<%= f.text_field :image_credit_url %>
+		<%= f.file_field :image %>
 		<%= link_to image_tag(@plant.image.url(:medium), size: '300x300'), @plant.image.url(:large) %>
 		<br />
-		<%= f.file_field :image %>
 	</div>
 </div>

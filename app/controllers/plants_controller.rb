@@ -78,7 +78,8 @@ class PlantsController < ApplicationController
 		def plant_params
 			params.require(:plant)
 				.permit(
-					:name, :summary, :id, :image,
+					:name, :summary, :id,
+					:image, :image_credit_desc, :image_credit_url,
 					future_feeling_ids: [], current_feeling_ids: [],
 					future_feelings_attributes: [
 						:name, :summary, :id, :_destroy

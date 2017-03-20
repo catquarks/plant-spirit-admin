@@ -27,8 +27,9 @@
             <span class="card-title">Summary</span>
             <% if @plant.summary %>
               <p><%= @plant.summary %></p>
+              <p>Image credit: <%= link_to @plant.image_credit_desc, @plant.image_credit_url %></p>
             <% else %>
-              <p>No summary is yet available. In the meantime, <a href="https://www.google.com/#q=<%= @plant.name %>" target="_blank">try Google</a>.</p>
+              <p>No summary is yet available.</p>
             <% end %>
             <%= link_to "Edit this Plant", edit_plant_path(@plant), class: "btn crud" %>
           </div>
