@@ -1,21 +1,21 @@
-<div class="plant-form">
-	<div class="plant-form-child">
-		<h3>Plant info</h3>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-		<br />
-		<%= f.label :summary %>
-		<%= f.text_area :summary, rows: 10 %>
-	</div>
-
-	<div class="plant-form-child">
-		<h3>Current Image</h3>
-		<%= f.label :image_credit_desc %>
-		<%= f.text_field :image_credit_desc %>
-		<%= f.label :image_credit_url %>
-		<%= f.text_field :image_credit_url %>
-		<%= f.file_field :image %>
-		<%= link_to image_tag(@plant.image.url(:medium), size: '300x300'), @plant.image.url(:large) %>
-		<br />
-	</div>
+<div class="plant-form container">
+	<div class="row">
+		<div class="plant-form-child col m6">
+			<h3>Plant info</h3>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+			<br />
+			<%= f.label :summary %>
+			<%= f.text_area :summary, rows: 10 %>
+		</div>
+		<div class="plant-form-child col m6">
+			<h3>Current Image</h3>
+			<%= f.file_field :image %>
+			<%= link_to image_tag(@plant.image.url(:medium), size: '300x300'), @plant.image.url(:large) %>
+			<%= f.label :image_credit_desc %>
+			<%= f.text_field :image_credit_desc %>
+			<br />
+			<%= f.label :image_credit_url %>
+			<%= f.text_field :image_credit_url %>
+		</div>
 </div>

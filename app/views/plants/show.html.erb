@@ -27,7 +27,7 @@
             <span class="card-title">Summary</span>
             <% if @plant.summary %>
               <p><%= @plant.summary %></p>
-              <p>Image credit: <%= link_to @plant.image_credit_desc, @plant.image_credit_url %></p>
+              <p><strong>Image credit:</strong> <%= @plant.image_credit_desc %> (<%= link_to "link", @plant.image_credit_url %>)</p>
             <% else %>
               <p>No summary is yet available.</p>
             <% end %>

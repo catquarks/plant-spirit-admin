@@ -92,22 +92,27 @@ a.crud {
 }
 
 .plant-form {
-  display: flex;
+  /*display: flex;*/
   
   .plant-form-child {
-    width: 40em;
-    flex-grow: 1;
+    /*width: 40em;*/
+    /*flex-grow: 1;*/
     /*padding: 2em;*/
     margin: auto;
 
     img {
       display: block;
-      margin: auto;
+      width: 100%;
+      /*margin: auto;*/
     }
 
     input[type=file] {
       display: block;
       margin: auto;
+    }
+
+    input[type=text] {
+      /*width: 14em;*/
     }
 
   }
